@@ -38,7 +38,7 @@ const createPostData = (body) => {
       mimeType: contentType,
       params: body[body.mode]
         .filter((param) => param.enabled)
-        .map((param) => ({ name: param.name, value: param.value }))
+        .map((param) => ({ name: param.name, value: encodeURIComponent(param.value) }))
     };
   } else {
     return {
